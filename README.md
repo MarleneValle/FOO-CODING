@@ -3,10 +3,10 @@ FooCoding is a full stack web development course run by Foo Café Foundation in 
 
 The curriculum consists of the following languages:
 
-HTML5
-CSS
-JavaScript
-React
-Node.js
-Git
-Database
+- HTML5
+- CSS
+- JavaScript
+- React
+- Node.js
+- Git
+- Database
