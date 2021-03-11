@@ -32,7 +32,7 @@ let z = 7.25;
 console.log(z);
 let a = Math.round(z);
 console.log(a);
-let h = Math.max(a, z);
+let h = Math.max((a, z));
 console.log("The highest value is " + h);
 
 // 6. Arrays
@@ -109,7 +109,7 @@ console.log ("% it’s the remainder operator. It obtains the remainder between 
 
 // 10.1 Can you store multiple types in an array? Numbers and strings? Make an example that illustrates your answer.
 
-array = ["drees", 25, undefined, "desk", 49, true, false]
+array = ["adrees", 25, undefined, "desk", 49, true, false]
 console.log(array);
 
 // 10.2 Can you compare infinities? (Not in Eyad's world) - does 6/0 === 10/0? How can you test this?
