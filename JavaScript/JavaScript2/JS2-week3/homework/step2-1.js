@@ -2,7 +2,7 @@
 'use strict';
 
 function foo(func) {
-  if (func) console.log(func);
+  func();
 }
 
 function bar() {
