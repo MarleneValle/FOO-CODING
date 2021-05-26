@@ -1,4 +1,4 @@
-﻿1.
+1.
 SELECT name, population
 FROM new_world.country
 WHERE population > 8000000
@@ -33,9 +33,9 @@ ORDER BY surfaceArea DESC;
 6.
 SELECT co.code, co.name, c.name AS cities
 FROM new_world.city c
-JOIN country co
+JOIN new_world.country co
 ON c.countrycode = co.code
-WHERE co.code = 'NLD';
+WHERE co.name = 'Netherlands';
 
 
 7.
