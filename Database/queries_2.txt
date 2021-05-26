@@ -1,0 +1,82 @@
+﻿1.
+SELECT name, population
+FROM new_world.country
+WHERE population > 8000000
+ORDER BY population;
+
+
+2.
+SELECT name
+FROM new_world.country
+WHERE name REGEXP 'land'
+
+
+3.
+SELECT name, population
+FROM new_world.city
+WHERE population BETWEEN 500000 AND 1000000
+ORDER BY population;
+
+
+4.
+SELECT name, continent
+FROM new_world.country
+WHERE continent = 'europe';
+
+
+5.
+SELECT name, surfaceArea
+FROM new_world.country
+ORDER BY surfaceArea DESC;
+
+
+6.
+SELECT co.code, co.name, c.name AS cities
+FROM new_world.city c
+JOIN country co
+ON c.countrycode = co.code
+WHERE co.code = 'NLD';
+
+
+7.
+SELECT population, name
+FROM new_world.city
+WHERE name = 'Rotterdam';
+
+
+8.
+SELECT name, surfacearea
+FROM new_world.country
+ORDER BY surfacearea DESC
+LIMIT 10;
+
+
+9.
+SELECT name, population
+FROM new_world.city
+ORDER BY population DESC
+LIMIT 10;
+
+
+10.
+SELECT SUM(population)
+AS WorldPopulation
+FROM new_world.country population;
+
+
+
+
+11. Give me the name of the countries and number of cities in each country, where the sum of the population in the cities listed is larger than 10 000 000
+Note: not the population of the country, but the sum of the population-column in the city-table.
+
+
+
+
+
+
+SELECT co.name, COUNT(c.countrycode), countrycode, SUM(c.population) AS totalPopulation 
+FROM city c
+JOIN country co ON countrycode = co.code
+GROUP BY countrycode
+HAVING totalPopulation > 10000000
+ORDER BY totalPopulation DESC;
