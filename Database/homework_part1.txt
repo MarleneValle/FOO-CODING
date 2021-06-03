@@ -1,0 +1,75 @@
+﻿PART 1
+1. What is the capital of country X ? (Accept X from user)
+PREPARE capital FROM
+        'SELECT capital
+        FROM new_world.country
+        WHERE lower (name) = ?';
+SET @c = 'peru';
+EXECUTE capital USING @c;
+SET @c = 'ecuador';
+EXECUTE capital USING @c;
+DEALLOCATE PREPARE capital;
+
+
+2. List all the languages spoken in the region Y (Accept Y from user)
+PREPARE language_region FROM
+        'SELECT DISTINCT cl.language, co.region
+        FROM new_world.country co
+        JOIN new_world.countrylanguage cl
+        ON co.code = cl.countrycode
+        WHERE region REGEXP ?
+    ORDER BY region';
+SET @lr = 'central america';
+EXECUTE language_region USING @lr;
+SET @lr = 'south america';
+EXECUTE language_region USING @lr;
+DEALLOCATE PREPARE language_region;
+
+
+3. Find the number of cities in which language Z is spoken (Accept Z from user)
+PREPARE cities_same_language FROM
+    'SELECT COUNT(ci.name)
+        FROM new_world.city ci
+        JOIN new_world.countrylanguage cl
+        ON ci.countrycode = cl.countrycode
+        WHERE language LIKE ?';
+SET @sl = 'english';
+EXECUTE cities_same_language USING @sl;
+SET @sl = 'spanish';
+EXECUTE cities_same_language USING @sl;
+DEALLOCATE PREPARE cities_same_language;
+
+
+
+
+4. List all the continents with the number of languages spoken in each continent
+PREPARE number_languages FROM
+        'SELECT co.continent, COUNT(cl.language) AS totalLanguages
+        FROM new_world.country co
+        JOIN new_world.countrylanguage cl
+        ON co.code = cl.countrycode
+    WHERE continent = ?
+        GROUP BY continent
+        HAVING totalLanguages';
+SET @c = 'asia';
+EXECUTE number_languages USING @c;
+SET @c = 'oceania';
+EXECUTE number_languages USING @c;
+DEALLOCATE PREPARE number_languages;
+
+
+
+
+5. Are there any countries that have
+   1. Same official language and b.  Same region
+PREPARE same_language_region FROM
+        'SELECT co.name AS country
+        FROM new_world.country co
+        JOIN new_world.countrylanguage cl
+        ON co.code = cl.countrycode 
+        WHERE IsOfficial = T AND language IN (?) AND region IN (?)';
+SET @co = 'peru';
+EXECUTE same_language_region USING @co;
+SET @co = 'sweden';
+EXECUTE same_language_region USING @co;
+DEALLOCATE PREPARE same_language_region;
