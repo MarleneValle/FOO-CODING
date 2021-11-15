@@ -9,6 +9,10 @@ header, main {
     padding: 5px;
     height: 94.75;
 }
+#navbar {
+    background-color: #f1ee05;
+
+}
 h1{
     font-size: 28pt;
 }
