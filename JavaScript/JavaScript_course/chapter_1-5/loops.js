@@ -1,26 +1,26 @@
-//FOR LOOPS
+// FOR LOOPS
 
-// for (let i = 0; i < 10; i++) {
-//   console.log("in loop ", i);
-// }
+for (let i = 0; i < 10; i++) {
+  console.log("in loop ", i);
+}
 
-// console.log("Loop finished");
+console.log("Loop finished");
 
-// const names = ["mariana", "cris", "luli", "martin"];
+const names = ["mariana", "cris", "luli", "martin"];
 
-// for (let i = 0; i < names.length; i++) {
-//   //   console.log(names[i]);
-//   let html = `<div>${names[i]}</div>`;
-//   console.log(html);
-// }
+for (let i = 0; i < names.length; i++) {
+  //   console.log(names[i]);
+  let html = `<div>${names[i]}</div>`;
+  console.log(html);
+}
 
-//WHILE LOOP
+// WHILE LOOP
 
-// let i = 0;
-// while (i < 6) {
-//   console.log("in loop", i);
-//   i++;
-// }
+let i = 0;
+while (i < 6) {
+  console.log("in loop", i);
+  i++;
+}
 
 // const names = ["mariana", "cris", "luli", "martin"];
 // let i = 0;
@@ -37,20 +37,20 @@
 
 //BREAK AND CONTINUE
 
-const scores = [50, 25, 0, 30, 100, 20, 10];
+// const scores = [50, 25, 0, 30, 100, 20, 10];
 
-for (let i = 0; i < scores.length; i++) {
-  if (scores[i] === 0) {
-    continue;
-  }
+// for (let i = 0; i < scores.length; i++) {
+//   if (scores[i] === 0) {
+//     continue;
+//   }
 
-  console.log("your score: ", scores[i]);
+//   console.log("your score: ", scores[i]);
 
-  if (scores[i] === 100) {
-    console.log("Congrats, you got the top score!");
-    break;
-  }
-}
+//   if (scores[i] === 100) {
+//     console.log("Congrats, you got the top score!");
+//     break;
+//   }
+// }
 
 // SWITCH STATEMENTS
 const grade = "D";
